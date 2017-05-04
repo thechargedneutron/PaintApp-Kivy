@@ -13,6 +13,9 @@ previous_y=0
 prev_x=0
 prev_y=0
 linewidth=1
+
+#A function to draw straight lines. It takes the touch_down point as start of the line and makes the touch_move points as end points
+# and continuously updating the end point
 class DrawStraight(Widget):
     straight_active=BooleanProperty(True)
     def on_touch_down(self, touch):
@@ -40,6 +43,8 @@ class DrawStraight(Widget):
             print "Love!!"
             touch.ud["line"].points+= [touch.x,touch.y]
 
+		
+#An eraser to remove the unwanted peice of line once the figure is complete.
 class UseRubber(Widget):
     rubber_active=BooleanProperty(True)
     def on_touch_down(self, touch):
@@ -52,6 +57,9 @@ class UseRubber(Widget):
     def on_touch_move(self, touch):
 	if 'rubber' in touch.ud:
 	    touch.ud["rubber"].points += [touch.x, touch.y]
+
+
+#A function to make rectangles using the touch_down and touch_up points as the diagonal vertices
 
 class DrawRectangle(Widget):
     rectangle_active=BooleanProperty(True)
@@ -79,7 +87,7 @@ class DrawRectangle(Widget):
 	    touch.ud["rect"].points += (touch.x, prev_y)
 	    touch.ud["rect"].points += (prev_x, prev_y)
 
-
+#A function to draw line on the movement of mouse
  
 class DrawPencil(Widget):
     pencil_active=BooleanProperty(True)
@@ -97,6 +105,7 @@ class DrawPencil(Widget):
             touch.ud["line1"].points += [touch.x, touch.y]
  
 class MainScreen(Screen):
+# Functions for colour button
     def give_yellow(self, *args):
         global foreground_red, foreground_green, foreground_blue
 	print "yellow"
@@ -140,6 +149,7 @@ class MainScreen(Screen):
         foreground_green=0
         foreground_blue=1
         print foreground_red, foreground_green, foreground_blue
+#Function to set the width of the lines
     def set_width_1(self, *args):
 	global linewidth
 	linewidth=1
