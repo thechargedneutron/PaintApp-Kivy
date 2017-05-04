@@ -1,0 +1,221 @@
+#:kivy 1.0.9
+ScreenManagement:
+    MainScreen:
+
+<MainScreen>:
+    name:"main"
+    FloatLayout:
+        DrawPencil:
+            pencil_active: pencil_button.state=='down'
+        DrawStraight:
+            straight_active: straight_button.state=='down' 
+        UseRubber:
+            rubber_active: rubber.state=='down'
+        DrawRectangle:
+            rectangle_active: rectangle_button.state=='down'
+        ToggleButton:
+            id: pencil_button
+            text: ""
+            font_size: 50
+            color: 0,1,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0*root.width,0.75*root.height
+            group: 'tools'
+            Image:
+                source: 'pencil.png'
+                center_x: self.parent.center_x +10
+                center_y: self.parent.center_y
+                allow_stretch: True
+        ToggleButton:
+            id: rubber
+            text: ""
+            font_size: 50
+            color: 0,1,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0*root.width,0.45*root.height
+            group: 'tools'
+            Image:
+                source: 'rubber.png'
+                center_x: self.parent.center_x +10
+                center_y: self.parent.center_y
+                allow_stretch: True
+        ToggleButton:
+            id: straight_button
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0,0,0,1)
+            pos: 0*root.width,0.6*root.height
+            group: 'tools'
+            Image:
+                source: 'linex.png'
+                center_x: self.parent.center_x +10
+                center_y: self.parent.center_y
+                allow_stretch: True
+        ToggleButton:
+            id: rectangle_button
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0,0,0,1)
+            pos: 0*root.width,0.30*root.height
+            group: 'tools'
+            Image:
+                source:'rectangle.png'
+                center_x: self.parent.center_x+10
+                center_y:self.parent.center_y
+                allow_stretch: True
+
+        Button:
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0.50*root.width,0*root.height
+            on_release:
+                root.give_yellow()
+            Image:
+                source: 'Yellow.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y-15
+                allow_stretch: True
+
+        Button:
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0.60*root.width,0*root.height
+            on_release:
+                root.give_orange()
+            Image:
+                source: 'orange.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y-15
+                allow_stretch: True
+
+        Button:
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0.40*root.width,0*root.height
+            on_release:
+                root.give_red()
+            Image:
+                source: 'Red.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y-15
+                allow_stretch: True
+        Button:
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0.70*root.width,0*root.height
+            on_release:
+                root.give_green()
+            Image:
+                source: 'Green.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y-15
+                allow_stretch: True
+        Button:
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0.30*root.width,0*root.height
+            on_release:
+                root.give_white()
+            Image:
+                source: 'white.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y-15
+                allow_stretch: True
+        Button:
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0.90*root.width,0*root.height
+            on_release:
+                root.give_blue()
+            Image:
+                source: 'blue.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y-15
+                allow_stretch: True
+
+        Button:
+            text: ""
+            font_size: 50
+            color: 1,0,0,1
+            size_hint: 0.1,0.15
+            background_color: (0.0, 0.0, 0.0, 1.0)
+            pos: 0.80*root.width,0*root.height
+            on_release:
+                root.give_violet()
+            Image:
+                source: 'violet.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y-15
+                allow_stretch: True
+
+        Label:
+            text: "Line width"
+            text_size:self.size
+            halign:'right'
+            valign:'top'
+
+        Button: 
+            text: "1"
+            font_size: 50
+            color: 1,1,1,1
+            size_hint: 0.1,0.1
+            pos: 0.9*root.width,0.85*root.height
+            group: 'width'
+            on_release:
+                root.set_width_1()
+
+
+        Button: 
+            text: "5"
+            font_size: 50
+            color: 1,1,1,1
+            size_hint: 0.1,0.1
+            pos: 0.9*root.width,0.75*root.height
+            group: 'width'
+            on_release:
+                root.set_width_5()
+
+
+        Button: 
+            text: "10"
+            font_size: 50
+            color: 1,1,1,1
+            size_hint: 0.1,0.1
+            pos: 0.9*root.width,0.65*root.height
+            group: 'width'
+            on_release:
+                root.set_width_10()
+
+
+
+
+
+
+
+
+
+
