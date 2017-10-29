@@ -1,0 +1,86 @@
+
+<popup>:
+    id : pop
+    title: 'Color Select'
+    size_hint: None, None
+    size: 400,400
+    auto_dismiss: False
+    Cpicker:
+        on_color: root.hello(self.color)
+        Button:
+            text: 'Select'
+            pos_hint: {'center_x': .76, 'y': .03}
+            size_hint: None, None
+            size: 100, 50
+            on_press: root.dismiss()
+<popup2>:
+    id : pop2
+    title: 'Width Select'
+    size_hint: None, None
+
+    size: 400,400
+    auto_dismiss: False
+    Label:
+        id:lab
+        text: ' Move slider to adjust width of pen'
+    Label: 
+        id:lab2
+        text:' '    
+    Slider:
+        min: 1
+        max: 25
+        on_value : root.thick() 
+<Mybutton@Button>:
+    font_size: 25
+    color: 0, 1, 0, 1
+    size: 150, 50
+    size_hint: .200, .150
+
+
+ScreenManagement:
+    MainScreen:
+ 
+<MainScreen>:
+    
+    Painter:
+        id: painter
+        
+    Mybutton:
+        pos: root.width*(0.8),0
+        text: 'Color Select'
+        on_press: root.open_it1()
+    Mybutton:
+        pos: root.width*(0.8),root.height *(0.604)
+        text: 'Width Select'
+        on_press: root.open_it2()
+
+    Mybutton:
+        on_release:painter.canvas.clear() ; painter.canvas.after.clear()
+        pos: root.width*(0.599),0
+        background_normal: 'clear.png'
+       
+    Mybutton:
+        pos: root.width*(0.398),0
+        on_press: root.eraser()
+        background_normal: 'eraser.png'
+       
+    Mybutton:
+        pos: root.width*(0.197),0
+        on_press: root.pencil()
+        background_normal: 'pencil.png'
+       
+    Mybutton:
+        pos: root.width*(0.8),root.height *(0.151)
+        on_press: root.sl()
+        background_normal: 'sl.png'
+       
+    Mybutton:
+        pos: root.width*(0.8),root.height *(0.302)
+        on_press: root.rect()
+        background_normal: 'rect.png'
+    Mybutton:
+        test: 'Save'
+        pos: root.width*(0.8),root.height *(0.453)
+        on_press: painter.save()
+        #background_normal: 'rect.png'    
+       
